@@ -20,7 +20,8 @@ public class SendToUIEty {
         return info;
     }
 
-    public void setInfo(Object info) {
+    public SendToUIEty setInfo(Object info) {
         this.info = info;
+        return this;
     }
 }

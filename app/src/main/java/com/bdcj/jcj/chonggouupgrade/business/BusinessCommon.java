@@ -1,18 +1,19 @@
 package com.bdcj.jcj.chonggouupgrade.business;
 
-import com.bdcj.jcj.chonggouupgrade.R;
-import com.bdcj.jcj.chonggouupgrade.common.base.BaseActivity;
-import com.lidroid.xutils.http.RequestParams;
-
 import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
+
+import com.bdcj.jcj.chonggouupgrade.R;
+import com.bdcj.jcj.chonggouupgrade.common.base.BaseActivity;
+import com.bdcj.jcj.chonggouupgrade.common.constants.AffConstants;
+import com.lidroid.xutils.http.RequestParams;
 
 /**
  * Created by Administrator on 2017/3/25.
  */
 
-public class BusinessCommon {
+public class BusinessCommon extends BusinessBase{
     private BaseActivity mContext;
 
     public BusinessCommon(BaseActivity mContext) {
@@ -50,7 +51,7 @@ public class BusinessCommon {
         params.addQueryStringParameter("TVERSION", mContext.getResources().getString(R.string.versionName));
         params.addQueryStringParameter("TYPE", "A");
         params.addQueryStringParameter("VERSION", mContext.getResources().getString(R.string.versionName));
-        send(AffConstans.BUSINESS.COMMON_REGISTER, params, mContext, AffConstans.BUSINESS.TAG_COMMOON_REGISTER, SEND_MAP);
+        send(AffConstants.BUSINESS.COMMON_REGISTER, params, mContext, AffConstants.BUSINESS.TAG_COMMON_REGISTER, SEND_MAP);
     }
 
 }

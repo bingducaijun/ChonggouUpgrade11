@@ -9,7 +9,7 @@ import com.bdcj.jcj.chonggouupgrade.ui.widget.WdtProDialog;
 import com.bdcj.jcj.chonggouupgrade.util.network.ConnectivityReceiver;
 import com.tencent.stat.StatService;
 
-public abstract class BaseActivity extends AppCompatActivity implements RequestCallback
+public abstract class BaseActivity extends AppCompatActivity implements AffRequestCallback
 {
 	protected WdtProDialog mProDialog = null;
 	public static ConnectivityReceiver mConnReceiver = null;
