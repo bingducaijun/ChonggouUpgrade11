@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.bdcj.jcj.chonggouupgrade.R;
 import com.bdcj.jcj.chonggouupgrade.ui.widget.WdtProDialog;
+import com.bdcj.jcj.chonggouupgrade.util.UtilActivity;
 import com.bdcj.jcj.chonggouupgrade.util.network.ConnectivityReceiver;
 import com.tencent.stat.StatService;
 
@@ -13,6 +14,7 @@ public abstract class BaseActivity extends AppCompatActivity implements AffReque
 {
 	protected WdtProDialog mProDialog = null;
 	public static ConnectivityReceiver mConnReceiver = null;
+	protected UtilActivity mBaseUtilAty = new UtilActivity(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -47,41 +49,49 @@ public abstract class BaseActivity extends AppCompatActivity implements AffReque
 		}
 	}
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //腾讯统计
+	@Override
+	protected void onResume()
+	{
+		super.onResume();
+		// 腾讯统计
 		StatService.onResume(this);
-		if (mConnReceiver==null){
-			mConnReceiver=new ConnectivityReceiver(this);
-			mConnReceiver.setOnNetworkAvailableListener(new ConnectivityReceiver.OnNetworkAvailableListener() {
+		if (mConnReceiver == null)
+		{
+			mConnReceiver = new ConnectivityReceiver(this);
+			mConnReceiver.setOnNetworkAvailableListener(new ConnectivityReceiver.OnNetworkAvailableListener()
+			{
 				@Override
-				public void onNetworkAvailable() {
+				public void onNetworkAvailable()
+				{
 
 				}
 
 				@Override
-				public void onNetworkUnavailable() {
+				public void onNetworkUnavailable()
+				{
 
 				}
 			});
 		}
 		mConnReceiver.bind(this);
-    }
+	}
 
 	@Override
-	protected void onPause() {
+	protected void onPause()
+	{
 		super.onPause();
-		if(mConnReceiver!=null){
+		if (mConnReceiver != null)
+		{
 			mConnReceiver.unbind(this);
-			mConnReceiver=null;
+			mConnReceiver = null;
 		}
 	}
 
 	/**
 	 * 底部购物车显示==未写
 	 */
-	protected void sendShopChartBroadcast(){
+	protected void sendShopChartBroadcast()
+	{
 
 	}
 }
