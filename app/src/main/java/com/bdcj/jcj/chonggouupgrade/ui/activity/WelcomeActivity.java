@@ -2,6 +2,7 @@ package com.bdcj.jcj.chonggouupgrade.ui.activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -47,6 +48,7 @@ public class WelcomeActivity extends BaseActivity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+		Log.e("resulttt", "========进来了=======");
 		setContentView(R.layout.activity_welcome);
 		ViewUtils.inject(this);
 		businessCommon = new BusinessCommon(this);
@@ -109,6 +111,7 @@ public class WelcomeActivity extends BaseActivity
 	@Override
 	public void onFailure(SendToUIEty failureEty)
 	{
+		Log.e("resulttt", "================onFailure====================" + failureEty.getInfo());
 		mLytWelcome.setVisibility(View.GONE);
 		mRlyNoNetwork.setVisibility(View.VISIBLE);
 	}

@@ -116,12 +116,12 @@
         "source": "F:\\ChonggouUpgrade\\pulltorefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
-        "merged": "F:\\ChonggouUpgrade\\pulltorefresh\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
-        "source": "F:\\ChonggouUpgrade\\pulltorefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\layout\\abc_dialog_title_material.xml"
-    },
-    {
         "merged": "F:\\ChonggouUpgrade\\pulltorefresh\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
         "source": "F:\\ChonggouUpgrade\\pulltorefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "F:\\ChonggouUpgrade\\pulltorefresh\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "F:\\ChonggouUpgrade\\pulltorefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\layout\\abc_dialog_title_material.xml"
     },
     {
         "merged": "F:\\ChonggouUpgrade\\pulltorefresh\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",

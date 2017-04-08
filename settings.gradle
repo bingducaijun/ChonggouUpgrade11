@@ -1,1 +1,1 @@
-include ':app', ':pulltorefresh', ':thinkinandroid', ':xutils_library', ':test'
+include ':app', ':pulltorefresh', ':thinkinandroid', ':xutils_library', ':test', ':library'

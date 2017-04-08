@@ -1,5 +1,7 @@
 package com.bdcj.jcj.chonggouupgrade.business;
 
+import android.util.Log;
+
 import com.bdcj.jcj.chonggouupgrade.AffordApp;
 import com.bdcj.jcj.chonggouupgrade.business.entity.ResponseEty;
 import com.bdcj.jcj.chonggouupgrade.business.entity.SendToUIEty;
@@ -66,7 +68,7 @@ public class BusinessBase
 				SendToUIEty sendUi = new SendToUIEty();
 				sendUi.setTag(tag);
 				LogUtils.e("返回JSON字符串结果=========>" + jsonResult);
-				if (UtilString.isEmpty(jsonResult))
+				if (!UtilString.isEmpty(jsonResult))
 				{
 					mBean = FastJSONHelper.deserialize(jsonResult, ResponseEty.class);
 				} else
@@ -78,19 +80,20 @@ public class BusinessBase
 				if (mBean == null)
 				{
 					sendUi.setInfo("JSON解析异常");
+					affRequestCallback.onFailure(sendUi);
 					return;
 				}
-				switch (mBean.getState())
+				switch (mBean.getSTATE())
 				{
 				case AffConstants.PUBLIC.RESULT_STATE_SUCCESS:
 					affRequestCallback.onSuccess(getSuccessEtyByType(sendType, mBean, sendUi));
 					break;
 				case AffConstants.PUBLIC.RESULT_STATE_ERROR:
-					sendUi.setInfo(mBean.getState());
+					sendUi.setInfo(mBean.getSTATE());
 					affRequestCallback.onFailure(sendUi);
 					break;
 				case AffConstants.PUBLIC.RESULT_STATE_RIGEDIT_ERROR:
-					sendUi.setInfo(mBean.getState());
+					sendUi.setInfo(mBean.getSTATE());
 					affRequestCallback.onFailure(sendUi);
 					break;
 				case AffConstants.PUBLIC.RESULT_STATE_MOBLILERIGEDIT_ERROR:
@@ -107,6 +110,7 @@ public class BusinessBase
 			@Override
 			public void onFailure(HttpException error, String msg)
 			{
+				Log.e("resulttt", "================onFailure====================");
 				SendToUIEty sendToUIEty = new SendToUIEty();
 				sendToUIEty.setTag(tag);
 				sendToUIEty.setInfo("服务协议异常");
@@ -121,7 +125,7 @@ public class BusinessBase
 		switch (sendType)
 		{
 		case SEND_MAP:
-			return sendToUIEty.setInfo(UtilJSON.parseKeyAndValueToMap(mBean.getOject() + ""));
+			return sendToUIEty.setInfo(UtilJSON.parseKeyAndValueToMap(mBean.getOBJECT() + ""));
 		case SEND_LISTMAP:
 			return null;
 		case SEND_ENTITYLOCTION:

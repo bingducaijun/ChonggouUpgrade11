@@ -2,37 +2,37 @@ package com.bdcj.jcj.chonggouupgrade.business.entity;
 
 /**
  * Created by Administrator on 2017/3/28.
+ * 返回结果{"MSG":"","STATE":"0","OBJECT":{"SIGNATURE":"9c2358bc7d0a4085a8a1bdff151ba23c5565"}}
+ * 所以作为json转化的实体类应该对应
  */
 
-public class ResponseEty {
-    private String state;
-    private String msg;
-    private Object oject;
+public class ResponseEty
+{
+	private String STATE;
+	private String MSG;
+	private Object OBJECT;
 
-    public ResponseEty() {
+    public String getSTATE() {
+        return STATE;
     }
 
-    public String getState() {
-        return state;
+    public void setSTATE(String STATE) {
+        this.STATE = STATE;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public String getMSG() {
+        return MSG;
     }
 
-    public String getMsg() {
-        return msg;
+    public void setMSG(String MSG) {
+        this.MSG = MSG;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public Object getOBJECT() {
+        return OBJECT;
     }
 
-    public Object getOject() {
-        return oject;
-    }
-
-    public void setOject(Object oject) {
-        this.oject = oject;
+    public void setOBJECT(Object OBJECT) {
+        this.OBJECT = OBJECT;
     }
 }

@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.1"
     defaultConfig {
         applicationId "com.bdcj.jcj.chonggouupgrade"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -25,9 +25,11 @@ dependencies {
     compile project(':pulltorefresh')
     compile project(':thinkinandroid')
     compile project(':xutils_library')
+    compile project(':library')
+
     compile files('libs/mid-core-sdk-3.7.1.jar')
     compile files('libs/mta-android-stat-sdk-2.3.0_20161221-jdk1.6.jar')
-    compile 'com.github.paolorotolo:appintro:4.1.0'
+    //compile 'com.github.paolorotolo:appintro:4.1.0'
     compile 'com.android.support:appcompat-v7:23.1.0'
 
 }

@@ -1,6 +1,7 @@
 package com.bdcj.jcj.chonggouupgrade.ui.activity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,11 +19,18 @@ public class NavigationActivity extends AppIntro
 	{
 		super.onCreate(savedInstanceState);
 
-		addSlide(AppIntroFragment.newInstance("Welcome!", "This is a demo of the AppIntro library, with permissions being requested on a slide..", R.drawable.img_welcome_one, Color.parseColor("#1976D2")));
-		addSlide(AppIntroFragment.newInstance("Permission Request", "In order to access your camera, you must give permissions.", R.drawable.img_welcome_two, Color.parseColor("#1976D2")));
-		addSlide(AppIntroFragment.newInstance("Simple, yet Customizable", "The library offers a lot of customization, while keeping it simple for those that like simple.", R.drawable.img_welcome_three, Color.parseColor("#1976D2")));
-		//addSlide(AppIntroFragment.newInstance("Explore", "Feel free to explore the rest of the library demo!", R.drawable.ic_slide4, Color.parseColor("#1976D2")));
-
+		addSlide(AppIntroFragment.newInstance("", "", R.drawable.img_welcome_one, Color.parseColor("#1976D2")));
+		addSlide(AppIntroFragment.newInstance("", "", R.drawable.img_welcome_two, Color.parseColor("#1976D2")));
+		addSlide(AppIntroFragment.newInstance("", "", R.drawable.img_welcome_three, Color.parseColor("#1976D2")));
+		// addSlide(AppIntroFragment.newInstance("Explore", "Feel free to
+		// explore the rest of the library demo!", R.drawable.ic_slide4,
+		// Color.parseColor("#1976D2")));
+		setIndicatorColor(Color.parseColor("#CC0000"), Color.parseColor("#000000"));
+		setDoneText("立即体验");
+		setColorDoneText(getResources().getColor(R.color.light_yellow));
+		setSkipText("跳过");
+		setColorSkipButton(getResources().getColor(R.color.light_yellow));
+		setDoneStyle(getResources().getDrawable(R.drawable.btn_welcome));
 		// Here we load a string array with a camera permission, and tell the
 		// library to request permissions on slide 2
 		askForPermissions(new String[] { Manifest.permission.CAMERA }, 2);
@@ -33,6 +41,7 @@ public class NavigationActivity extends AppIntro
 	{
 		super.onSkipPressed(currentFragment);
 		finish();
+		startActivity(new Intent(this,HomeActivity.class));
 	}
 
 	@Override
@@ -40,5 +49,6 @@ public class NavigationActivity extends AppIntro
 	{
 		super.onDonePressed(currentFragment);
 		finish();
+		startActivity(new Intent(this,HomeActivity.class));
 	}
 }
